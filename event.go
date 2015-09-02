@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
-	"time"
 
 	"github.com/andrewstuart/go-sse"
 )
@@ -43,7 +42,7 @@ func Watch(uri string, evCh chan *Event) <-chan error {
 				//TODO error option
 				select {
 				case errCh <- err:
-				case <-time.After(10 * time.Millisecond):
+				default:
 				}
 				continue
 			}
