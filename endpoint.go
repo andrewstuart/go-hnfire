@@ -2,7 +2,7 @@ package hnfire
 
 import "fmt"
 
-const hnBase Endpoint = "https://hacker-news.firebaseio.com/v0"
+var hnBase Endpoint = "https://hacker-news.firebaseio.com/v0"
 
 //An Endpoint is a convenience function for getting nested API strings.
 type Endpoint string
