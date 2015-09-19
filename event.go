@@ -19,6 +19,7 @@ type Event struct {
 	URI           string
 	Body          io.Reader
 	OriginalEvent *sse.Event
+	Error         error
 }
 
 //Watch takes an endpoint and an event channel the event channel on updates to
@@ -39,7 +40,7 @@ func Watch(uri string, evCh chan *Event) <-chan error {
 			err := json.NewDecoder(evt.Data).Decode(&fireEvt)
 
 			if err != nil {
-				//TODO error option
+				//TODO better error handling
 				select {
 				case errCh <- err:
 				default:

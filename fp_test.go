@@ -2,6 +2,7 @@ package hnfire
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -30,6 +31,14 @@ const fakeItem2 = `{
 	"score": 1000000,
 	"author": "andrewstuart2"
 }`
+
+func ExampleFpGetter() {
+	fp, err := GetFp(1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println(fp)
+}
 
 func TestFpGetter(t *testing.T) {
 	var requests int32
