@@ -32,7 +32,7 @@ const fakeItem2 = `{
 	"author": "andrewstuart2"
 }`
 
-func ExampleFpGetter() {
+func ExampleGetFp() {
 	fp, err := GetFp(1)
 	if err != nil {
 		log.Fatal(err)
